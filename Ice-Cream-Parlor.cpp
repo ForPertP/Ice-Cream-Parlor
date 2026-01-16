@@ -17,27 +17,20 @@ vector<string> split(const string &);
 
 vector<int> icecreamParlor(int m, vector<int> arr)
 {
-    std::vector<int> result(2);
-    std::unordered_map<long int, long int> mp;
+    unordered_map<int, int> mp;
 
     for (int i = 0; i < arr.size(); ++i)
     {
+        int need = m - arr[i];
+        auto it = mp.find(need);
+        if (it != mp.end())
+            return { it->second + 1, i + 1 };
+
         mp[arr[i]] = i;
     }
-    
-    for (int i = 0; i < arr.size(); ++i)
-    {
-        if (mp.count(m-arr[i]) && mp[m-arr[i]] != i)
-        {
-            result[0] = i + 1;
-            result[1] = mp[m - arr[i]] + 1;
-            break;
-        }        
-    }
-    
-    return result;    
-}
 
+    return {};
+}
 
 
 int main()
@@ -73,6 +66,7 @@ int main()
             arr[i] = arr_item;
         }
 
+ 
         vector<int> result = icecreamParlor(m, arr);
 
         for (size_t i = 0; i < result.size(); i++) {
