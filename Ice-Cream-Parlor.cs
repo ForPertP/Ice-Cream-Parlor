@@ -12,6 +12,37 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 
+class Result
+{
+
+    /*
+     * Complete the 'icecreamParlor' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts following parameters:
+     *  1. INTEGER m
+     *  2. INTEGER_ARRAY arr
+     */
+
+    public static List<int> icecreamParlor(int m, List<int> arr)
+    {
+        Dictionary<int, int> mp = new Dictionary<int, int>();
+
+        for (int i = 0; i < arr.Count; i++)
+        {
+            int need = m - arr[i];
+
+            if (mp.TryGetValue(need, out int index))
+                return new List<int> { index + 1, i + 1 };
+
+            mp[arr[i]] = i;
+        }
+
+        return new List<int>();
+    }
+}
+
+
 class Solution
 {
     public static void Main(string[] args)
