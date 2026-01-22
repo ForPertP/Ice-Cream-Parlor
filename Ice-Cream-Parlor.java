@@ -22,6 +22,9 @@ class Result {
      *  1. INTEGER m
      *  2. INTEGER_ARRAY arr
      */
+
+  public static List<Integer> icecreamParlor(int m, List<Integer> arr) {
+  }
 }
 
 
