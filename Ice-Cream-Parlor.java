@@ -24,6 +24,7 @@ class Result {
      */
 
   public static List<Integer> icecreamParlor(int m, List<Integer> arr) {
+      Map<Integer, Integer> mp = new HashMap<>();
   }
 }
 
