@@ -10,8 +10,6 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-
-
 class Result {
 
     /*
@@ -23,11 +21,22 @@ class Result {
      *  2. INTEGER_ARRAY arr
      */
 
-  public static List<Integer> icecreamParlor(int m, List<Integer> arr) {
-      Map<Integer, Integer> mp = new HashMap<>();
-  }
-}
+    public static List<Integer> icecreamParlor(int m, List<Integer> arr) {
+        Map<Integer, Integer> mp = new HashMap<>();
 
+        for (int i = 0; i < arr.size(); i++) {
+            int need = m - arr.get(i);
+
+            if (mp.containsKey(need)) {
+                return Arrays.asList(mp.get(need) + 1, i + 1);
+            }
+
+            mp.put(arr.get(i), i);
+        }
+
+        return new ArrayList<>();
+    }
+}
 
 
 public class Solution {
